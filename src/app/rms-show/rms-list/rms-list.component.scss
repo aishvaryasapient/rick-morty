@@ -1,0 +1,30 @@
+.title-custom{
+    // width: calc(100% + 32px);
+    margin: 0 -16px 0 -16px;
+    padding: 10px;
+    h6{
+        margin: 0;
+    }
+}
+.mat-card-image{
+    margin-bottom: 0 !important;
+}
+.mat-card{
+    margin-bottom: 10px;
+}
+.mat-list-item{
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    &:last-child{
+        border-bottom: none;
+    }
+    span{
+        font-size: 11px;
+    }
+    
+}
+.mat-list-base .mat-list-item .mat-list-item-content{
+    padding: 0 !important;
+}
+.spacer {
+    flex: 1 1 auto;
+  }

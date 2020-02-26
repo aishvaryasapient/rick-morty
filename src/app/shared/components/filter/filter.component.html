@@ -1,0 +1,4 @@
+<div class="f-container" fxLayout="column" *ngFor="let f of filterList">
+    <h4>{{f.name}}</h4>
+    <mat-checkbox *ngFor="let item of f.items" (change)="toggleFilter(f,item)">{{item}}</mat-checkbox>
+</div>
