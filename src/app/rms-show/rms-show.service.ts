@@ -17,15 +17,15 @@ export class RmsShowService {
     let filter = [
       {
         name: 'Species',
-        items:['Human', 'Mytholog','Other Species']
+        items:[{name:'Human',selected:false}, {name:'Mytholog',selected:false},{name:'Other Species',selected:false}]
       },
       {
         name:'Gender',
-        items:['Male','Female']
+        items:[{name:'Male',selected:false},{name:'Female',selected:false}]
       },
       {
         name: 'Origin',
-        items:['Unknown','Post Apocalyptic Earth', 'Nuptia 4','Other Origins']
+        items:[{name:'Unknown',selected:false},{name:'Post Apocalyptic Earth',selected:false}, {name:'Nuptia 4',selected:false},{name:'Other Origins',selected:false}]
       }
     ]
     return filter;

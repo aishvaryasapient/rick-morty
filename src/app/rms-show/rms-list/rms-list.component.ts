@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RmsShowService } from '../rms-show.service';
 import {Page, Character, FILTER} from './../models/models';
+import { CHIPMODEL } from 'src/app/shared/model/chip.model';
 
 @Component({
   selector: 'rms-rms-list',
@@ -10,12 +11,12 @@ import {Page, Character, FILTER} from './../models/models';
 export class RmsListComponent implements OnInit {
   page:Page = {
     count: 0,
-    currentpage:1,
+    currentpage:13,
     pages:0
   };
   allCharacters: any[];
   filterList:FILTER[];
-  selectedFilter: any[]=[];
+  selectedFilter: CHIPMODEL[]=[];
   constructor(private _rmsService: RmsShowService) { }
 
   ngOnInit(): void {
@@ -38,7 +39,17 @@ export class RmsListComponent implements OnInit {
   }
   filterChange(evt){
     console.log(evt);
-    this.selectedFilter.push(evt)
+    let index = this.selectedFilter.findIndex(sFilter=> sFilter.item === evt.item);
+    if(index === -1){
+      this.selectedFilter.push(evt);
+    }else{
+      console.log(this.selectedFilter[index])
+     let mainCat =  this.filterList.find(item=> item.name === this.selectedFilter[index].name.name);
+     let subItem = mainCat.items.find(sItem=> sItem.name === this.selectedFilter[index].item.name);
+     subItem.selected = false;
+      this.selectedFilter.splice(index,1);
+
+    }
   }
 
 }

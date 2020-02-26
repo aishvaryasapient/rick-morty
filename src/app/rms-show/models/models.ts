@@ -24,7 +24,11 @@ export interface Location{
         created: string;
       
   }
+  export interface SELECTED{
+    name:string;
+    selected:boolean;
+  }
   export interface FILTER{
       name:string;
-      items:string[];
+      items:SELECTED[];
   }

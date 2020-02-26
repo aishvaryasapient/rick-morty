@@ -7,8 +7,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FilterComponent } from './components/filter/filter.component';
+import { ChipsComponent } from './components/chips/chips.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [FilterComponent],
+  declarations: [FilterComponent, ChipsComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -16,7 +20,10 @@ import { FilterComponent } from './components/filter/filter.component';
     MatCardModule,
     MatDividerModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule
   ],
   exports:[
     HttpClientModule,
@@ -25,7 +32,11 @@ import { FilterComponent } from './components/filter/filter.component';
     MatDividerModule,
     MatListModule,
     MatCheckboxModule,
-    FilterComponent
+    FilterComponent,
+    ChipsComponent,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

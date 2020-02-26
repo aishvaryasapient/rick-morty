@@ -4,13 +4,16 @@
 
 <div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
     <div fxLayout="column" fxFlex="20" fxFlexOffset="20px" >
-        <h5>Filter</h5>
+        <h3>Filter</h3>
         <rms-filter [filterList]="filterList" (filterChange)="filterChange($event)"></rms-filter>
     </div>
     <div fxLayout="column">
         <div fxLayout="column">
-            <div>
-                <h4>Selected Filters</h4>
+            <div fxLayout="row wrap">
+                <h3 fxFlex="100">Selected Filters</h3>
+                <ng-container *ngIf="selectedFilter.length > 0">
+                    <rms-chips *ngFor="let item of selectedFilter" [chipsInput]="item" (removeFilter)="filterChange($event)"></rms-chips>
+                </ng-container>
             </div>
             <div>
                 Search allCharacters & Sorting
