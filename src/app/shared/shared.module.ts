@@ -12,8 +12,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ElaspedTimePipe } from './pipe/elasped-time/elasped-time.pipe';
 @NgModule({
-  declarations: [FilterComponent, ChipsComponent, PaginationComponent],
+  declarations: [FilterComponent, ChipsComponent, PaginationComponent, ElaspedTimePipe],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -38,7 +39,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    PaginationComponent
+    PaginationComponent,
+    ElaspedTimePipe
   ]
 })
 export class SharedModule { }

@@ -51,7 +51,9 @@
 .cards{
     background-color: rgb(32, 35, 41);
     padding: 1.2rem;
+    
     .card{
+        margin-right: 10px;
       max-width: 300px;
       margin-bottom: 0.625rem;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 2px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -126,5 +128,19 @@
             }
           }
       }
+    }
+}
+.search-sort{
+    padding-bottom: 15px;
+    .search{
+        label{
+            display: block;
+        }
+        input{
+            height: 30px !important;
+        }
+        button{
+            height: 36px !important;
+        }
     }
 }

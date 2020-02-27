@@ -9,6 +9,7 @@ import { CHIPMODEL } from 'src/app/shared/model/chip.model';
   styleUrls: ['./rms-list.component.scss']
 })
 export class RmsListComponent implements OnInit {
+  searchName: string;
   page:Page = {
     count:0,
     currentpage:1,
@@ -31,6 +32,9 @@ export class RmsListComponent implements OnInit {
       this.selectedFilter.forEach(item=>{
         query +='&' +item.name.name.toLowerCase() +'='+item.item.name 
       })
+    }
+    if(this.searchName){
+      query += '&name='+this.searchName
     }
     this._rmsService.getAllChjaracters(page,query).subscribe(
       (res:{info:any,results:Character[]})=>{
@@ -61,4 +65,5 @@ export class RmsListComponent implements OnInit {
     this.page.currentpage = evt;
     this.getAllCharacters(this.page.currentpage);
   }
+
 }
