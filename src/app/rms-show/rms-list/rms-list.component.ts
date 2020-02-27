@@ -26,7 +26,13 @@ export class RmsListComponent implements OnInit {
   }
 
   getAllCharacters(page:number){
-    this._rmsService.getAllChjaracters(page).subscribe(
+    let query = '';
+    if(this.selectedFilter.length > 0){
+      this.selectedFilter.forEach(item=>{
+        query +='&' +item.name.name.toLowerCase() +'='+item.item.name 
+      })
+    }
+    this._rmsService.getAllChjaracters(page,query).subscribe(
       (res:{info:any,results:Character[]})=>{
         this.page.count = res.info.count;
         this.page.pages = res.info.pages;
@@ -43,19 +49,16 @@ export class RmsListComponent implements OnInit {
     if(index === -1){
       this.selectedFilter.push(evt);
     }else{
-      console.log(this.selectedFilter[index])
      let mainCat =  this.filterList.find(item=> item.name === this.selectedFilter[index].name.name);
      let subItem = mainCat.items.find(sItem=> sItem.name === this.selectedFilter[index].item.name);
      subItem.selected = false;
       this.selectedFilter.splice(index,1);
-
     }
+    this.getAllCharacters(this.page.currentpage);
   }
 
   goToPage(evt){
-    console.log(evt)
     this.page.currentpage = evt;
-    console.log(this.page)
     this.getAllCharacters(this.page.currentpage);
   }
 }

@@ -30,9 +30,10 @@ export class RmsShowService {
     ]
     return filter;
   }
-  getAllChjaracters(page:number){
-    console.log('djfkjdsfkdsjfgdsghfdsgfhgkfdhghfdk',environment.url)
-    return this._http.get(environment.url+'character?page='+page).pipe(
+  getAllChjaracters(page:number,query:string){
+
+    let queryString = query.length > 0 ? (page+query) :page;
+    return this._http.get(environment.url+'character?page='+queryString).pipe(
       retry(1),
       catchError(this.handleError)
     )

@@ -19,30 +19,58 @@
                 Search allCharacters & Sorting
             </div>
         </div>
-        <div fxLayout="row wrap"  fxLayoutAlign="space-around">
-            <!-- <div fxFlex="100">
-                <p>rms-list works!</p>
-            </div> -->
-            <!-- <div *ngFor="let char of allCharacters" fxFlex="24" fxFlex.xs="48" > -->
-                <mat-card *ngFor="let char of allCharacters" fxFlex="24" fxFlex.xs="48" fxFlex.sm="31">
-                    <img mat-card-image [src]="char.image" alt="{{char.image}}">
-                    <div class="title-custom">
-                        <span>{{char.name}}/{{char.episode.length}}</span>
+        <div fxLayout="row wrap" class="cards" fxFlex fxLayoutAlign="space-around">
+            <div fxFlex="24" fxFlex.xs="48" class="card" *ngFor="let char of allCharacters">
+               <!-- <p>{{char.name}}</p> -->
+               <div class="card-header">
+                   <div class="card-image">
+                       <img [src]="char.image" alt="{{char.image}}">
+                   </div>
+                   <div class="card-title">
+                       <h2>{{char.name}}</h2>
+                       <p>id: {{char.id}}</p>
+                   </div>
+               </div>
+               <div class="card-info">
+                    <div class="list-item">
+                        <span>STATUS</span>
+                        <p>{{char.status}}</p>
                     </div>
-                <mat-card-content>
+                    <div class="list-item">
+                        <span>SPECIES</span>
+                        <p>{{char.species}}</p>
+                    </div>
+                    <div class="list-item">
+                        <span>GENDER</span>
+                        <p>{{char.gender}}</p>
+                    </div>
+                    <div class="list-item">
+                        <span>ORIGIN</span>
+                        <p>{{char.origin.name}}</p>
+                    </div>
+                    <div class="list-item">
+                        <span>LAST LOCATION</span>
+                        <p>{{char.location.name}}</p>
+                    </div>
+               </div>
+            </div>
+                <!-- <mat-card *ngFor="let char of allCharacters" fxFlex="24" fxFlex.xs="48" fxFlex.sm="31">
+                        <img mat-card-image [src]="char.image" alt="{{char.image}}">
+                        <div class="title-custom">
+                            <span>{{char.name}}/{{char.episode.length}}</span>
+                        </div>
+                    <mat-card-content>
                     <mat-list>
                         <mat-list-item>
                             <span>STATUS</span>
                             <span class="spacer"></span>
                             <span>{{char.status}}</span>
                         </mat-list-item>
-                        <!-- <mat-divider></mat-divider> -->
                         <mat-list-item>
                             <span>SPECIES</span>
                             <span class="spacer"></span>
                             <span>{{char.species}}</span>
                         </mat-list-item>
-                        <!-- <mat-divider></mat-divider> -->
                         <mat-list-item>
                             <span>GENDER</span>
                             <span class="spacer"></span>
@@ -60,10 +88,9 @@
                         </mat-list-item>
                       </mat-list>
                 </mat-card-content>        
-            </mat-card>
-            <!-- </div> -->
+            </mat-card> -->
         </div>
-        <div>
+        <div fxLayoutAlign="end">
             <rms-pagination [currentPage]="page.currentpage" [totalItemsCount]="page.count" [perPage]="page.perPage" [pagesToShow]="page.pages > 4 ? 4: page.pages"
              (prev)="goToPage($event)" (next)="goToPage($event)" (goPage)="goToPage($event)"></rms-pagination>
         </div>
