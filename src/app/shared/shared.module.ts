@@ -11,8 +11,9 @@ import { ChipsComponent } from './components/chips/chips.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { PaginationComponent } from './components/pagination/pagination.component';
 @NgModule({
-  declarations: [FilterComponent, ChipsComponent],
+  declarations: [FilterComponent, ChipsComponent, PaginationComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -36,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     ChipsComponent,
     MatButtonModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    PaginationComponent
   ]
 })
 export class SharedModule { }

@@ -3,11 +3,11 @@
 
 
 <div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
-    <div fxLayout="column" fxFlex="20" fxFlexOffset="20px" >
+    <div fxLayout="column" fxFlex="18" fxFlexOffset="20px" class="p-fixed" >
         <h3>Filter</h3>
         <rms-filter [filterList]="filterList" (filterChange)="filterChange($event)"></rms-filter>
     </div>
-    <div fxLayout="column">
+    <div fxLayout="column" fxFlex="80">
         <div fxLayout="column">
             <div fxLayout="row wrap">
                 <h3 fxFlex="100">Selected Filters</h3>
@@ -19,12 +19,12 @@
                 Search allCharacters & Sorting
             </div>
         </div>
-        <div fxLayout="row wrap"  fxFlex="80" fxLayoutAlign="space-around">
+        <div fxLayout="row wrap"  fxLayoutAlign="space-around">
             <!-- <div fxFlex="100">
                 <p>rms-list works!</p>
             </div> -->
             <!-- <div *ngFor="let char of allCharacters" fxFlex="24" fxFlex.xs="48" > -->
-                <mat-card *ngFor="let char of allCharacters" fxFlex="24" fxFlex.xs="48">
+                <mat-card *ngFor="let char of allCharacters" fxFlex="24" fxFlex.xs="48" fxFlex.sm="31">
                     <img mat-card-image [src]="char.image" alt="{{char.image}}">
                     <div class="title-custom">
                         <span>{{char.name}}/{{char.episode.length}}</span>
@@ -62,6 +62,10 @@
                 </mat-card-content>        
             </mat-card>
             <!-- </div> -->
+        </div>
+        <div>
+            <rms-pagination [currentPage]="page.currentpage" [totalItemsCount]="page.count" [perPage]="page.perPage" [pagesToShow]="page.pages > 4 ? 4: page.pages"
+             (prev)="goToPage($event)" (next)="goToPage($event)" (goPage)="goToPage($event)"></rms-pagination>
         </div>
     </div>
     

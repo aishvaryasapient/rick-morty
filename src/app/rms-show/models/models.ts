@@ -2,6 +2,7 @@ export interface Page{
     count: number;
     currentpage:number;
     pages:number;
+    perPage:number;
   }
 
 export interface Location{

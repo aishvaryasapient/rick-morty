@@ -10,9 +10,10 @@ import { CHIPMODEL } from 'src/app/shared/model/chip.model';
 })
 export class RmsListComponent implements OnInit {
   page:Page = {
-    count: 0,
-    currentpage:13,
-    pages:0
+    count:0,
+    currentpage:1,
+    pages:0,
+    perPage:20
   };
   allCharacters: any[];
   filterList:FILTER[];
@@ -21,13 +22,12 @@ export class RmsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterList = this._rmsService.getAllFilterList();
-    this.getAllCharacters(this.page.currentpage);
+    this.getAllCharacters(1)
   }
 
   getAllCharacters(page:number){
     this._rmsService.getAllChjaracters(page).subscribe(
       (res:{info:any,results:Character[]})=>{
-        console.log(res);
         this.page.count = res.info.count;
         this.page.pages = res.info.pages;
         this.allCharacters = res.results;
@@ -52,4 +52,10 @@ export class RmsListComponent implements OnInit {
     }
   }
 
+  goToPage(evt){
+    console.log(evt)
+    this.page.currentpage = evt;
+    console.log(this.page)
+    this.getAllCharacters(this.page.currentpage);
+  }
 }
