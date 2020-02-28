@@ -23,7 +23,7 @@
                     <button color="primary" (click)="getAllCharacters(page.currentpage)">Search</button>
                </div>
                <div class="sort">
-                <select (change)="sortingOnChange($event.target.value)" #sortVar>
+                <select (change)="sortOrder = $event.target.value" #sortVar>
                     <option value="false">Ascending</option>
                     <option value="true">Descending</option>
                   </select>

@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://rickandmortyapi.com/api/",
+      "secure": false
+    }
+  }
+}
