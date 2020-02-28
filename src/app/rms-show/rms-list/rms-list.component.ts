@@ -10,6 +10,7 @@ import { CHIPMODEL } from 'src/app/shared/model/chip.model';
 })
 export class RmsListComponent implements OnInit {
   searchName: string;
+  sortOrder: boolean;
   page:Page = {
     count:0,
     currentpage:1,
@@ -66,4 +67,8 @@ export class RmsListComponent implements OnInit {
     this.getAllCharacters(this.page.currentpage);
   }
 
+  sortingOnChange(val){
+    this.sortOrder = val;
+    this.allCharacters = [...this.allCharacters]
+  }
 }

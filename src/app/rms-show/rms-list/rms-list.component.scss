@@ -43,17 +43,17 @@
     flex: 1 1 auto;
   }
 
-  @media(min-width:700px){
-      .p-fixed{
+//   @media(min-width:700px){
+//       .p-fixed{
           
-      }
-  }
+//       }
+//   }
 .cards{
     background-color: rgb(32, 35, 41);
-    padding: 1.2rem;
+    padding: 1rem;
     
     .card{
-        margin-right: 10px;
+        margin-right: 7px;
       max-width: 300px;
       margin-bottom: 0.625rem;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 2px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -130,6 +130,11 @@
       }
     }
 }
+@media(max-width:400px){
+    .cards{
+        padding: .6rem;
+    }
+}
 .search-sort{
     padding-bottom: 15px;
     .search{
@@ -141,6 +146,14 @@
         }
         button{
             height: 36px !important;
+        }
+    }
+    .sort{
+        select{
+            height: 36px;
+    top: 10px;
+    position: relative;
+
         }
     }
 }

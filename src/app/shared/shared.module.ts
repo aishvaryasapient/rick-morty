@@ -13,8 +13,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ElaspedTimePipe } from './pipe/elasped-time/elasped-time.pipe';
+import { SortPipe } from './pipe/sort/sort.pipe';
 @NgModule({
-  declarations: [FilterComponent, ChipsComponent, PaginationComponent, ElaspedTimePipe],
+  declarations: [FilterComponent, ChipsComponent, PaginationComponent, ElaspedTimePipe, SortPipe],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -40,7 +41,8 @@ import { ElaspedTimePipe } from './pipe/elasped-time/elasped-time.pipe';
     MatIconModule,
     FormsModule,
     PaginationComponent,
-    ElaspedTimePipe
+    ElaspedTimePipe,
+    SortPipe
   ]
 })
 export class SharedModule { }

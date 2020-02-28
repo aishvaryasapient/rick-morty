@@ -15,17 +15,23 @@
                     <rms-chips *ngFor="let item of selectedFilter" [chipsInput]="item" (removeFilter)="filterChange($event)"></rms-chips>
                 </ng-container>
             </div>
-            <div fxLayoutAlign="space-between" class="search-sort">
+            <div fxLayoutAlign="space-between center" class="search-sort">
                 
                <div class="search">
                    <label for="search">Search By Name</label>
                     <input type="text" id="search" placeholder="" [(ngModel)]="searchName">
                     <button color="primary" (click)="getAllCharacters(page.currentpage)">Search</button>
                </div>
+               <div class="sort">
+                <select (change)="sortingOnChange($event.target.value)" #sortVar>
+                    <option value="false">Ascending</option>
+                    <option value="true">Descending</option>
+                  </select>
+               </div>
             </div>
         </div>
         <div fxLayout="row wrap" class="cards" fxFlex>
-            <div fxFlex="24" fxFlex.xs="48" class="card" *ngFor="let char of allCharacters">
+            <div fxFlex="24" fxFlex.xs="47" class="card" *ngFor="let char of allCharacters | sort:'id': sortOrder">
                <!-- <p>{{char.name}}</p> -->
                <div class="card-header">
                    <div class="card-image">
