@@ -14,8 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ElaspedTimePipe } from './pipe/elasped-time/elasped-time.pipe';
 import { SortPipe } from './pipe/sort/sort.pipe';
+import { HighLightDirective } from './directives/high-light/high-light.directive';
 @NgModule({
-  declarations: [FilterComponent, ChipsComponent, PaginationComponent, ElaspedTimePipe, SortPipe],
+  declarations: [FilterComponent, ChipsComponent, PaginationComponent, ElaspedTimePipe, SortPipe, HighLightDirective],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -42,7 +43,8 @@ import { SortPipe } from './pipe/sort/sort.pipe';
     FormsModule,
     PaginationComponent,
     ElaspedTimePipe,
-    SortPipe
+    SortPipe,
+    HighLightDirective
   ]
 })
 export class SharedModule { }

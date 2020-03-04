@@ -4,7 +4,7 @@
 
 <div fxLayout="row" fxLayout.xs="column" fxFlex fxLayoutGap="20px">
     <div fxLayout="column" fxFlex="18" fxFlexOffset="20px" class="p-fixed" >
-        <h3>Filter</h3>
+        <h3 rmsHighLight [highlightColor]="'orange'">Filter</h3>
         <rms-filter [filterList]="filterList" (filterChange)="filterChange($event)"></rms-filter>
     </div>
     <div fxLayout="column" fxFlex="80">
@@ -24,8 +24,8 @@
                </div>
                <div class="sort">
                 <select (change)="sortOrder = $event.target.value" #sortVar>
-                    <option value="false">Ascending</option>
-                    <option value="true">Descending</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
                   </select>
                </div>
             </div>
