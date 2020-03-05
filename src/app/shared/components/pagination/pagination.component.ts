@@ -20,18 +20,14 @@ export class PaginationComponent implements OnInit {
 
   
   ngOnInit() {
-    console.log(this.currentPage);
   }
 
   onPage(n: number): void {
     this.currentPage = n;
-    console.log(this.currentPage)
     this.goPage.emit(n);
-    console.log(this.getPages());
   }
 
   isOnLastPage(): boolean {
-    // console.log(this.perPage * this.currentPage, this.totalItemsCount);
     return this.perPage * this.currentPage >= this.totalItemsCount;
   }
 
@@ -52,7 +48,6 @@ export class PaginationComponent implements OnInit {
   }
   onPrev(): void {
 
-    // console.log(this.currentPage)
     this.onPage(this.currentPage-1);
     // this.prev.emit(true);
   }

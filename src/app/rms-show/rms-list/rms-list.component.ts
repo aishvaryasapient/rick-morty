@@ -37,19 +37,17 @@ export class RmsListComponent implements OnInit {
     if(this.searchName){
       query += '&name='+this.searchName
     }
-    this._rmsService.getAllChjaracters(page,query).subscribe(
+    this._rmsService.getAllCharacters(page,query).subscribe(
       (res:{info:any,results:Character[]})=>{
         this.page.count = res.info.count;
         this.page.pages = res.info.pages;
         this.allCharacters = res.results;
       },
       err=>{
-        console.log(err);
       }
     )
   }
   filterChange(evt){
-    console.log(evt);
     let index = this.selectedFilter.findIndex(sFilter=> sFilter.item === evt.item);
     if(index === -1){
       this.selectedFilter.push(evt);

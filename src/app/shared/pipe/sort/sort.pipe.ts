@@ -29,12 +29,10 @@ transform(data : any[], ...args : any[] ){
     //     comparer = this.getDescendigComparer(comparer);
     data.sort((p1:any,p2:any)=>{
       if(sort === 'desc'){
-        console.log('Order True')
         if (p1[attrName] < p2[attrName]) return 1;
         if (p1[attrName] > p2[attrName]) return -1;
         return 0;
       }else{
-        console.log('Order False')
         if (p1[attrName] < p2[attrName]) return -1;
         if (p1[attrName] > p2[attrName]) return 1;
         return 0;

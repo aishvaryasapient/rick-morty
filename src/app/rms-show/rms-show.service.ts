@@ -4,13 +4,10 @@ import { throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {retry, catchError} from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RmsShowService {
 
   constructor(private _http: HttpClient) { 
-    console.log(environment.url)
   }
 
   getAllFilterList(){
@@ -30,7 +27,7 @@ export class RmsShowService {
     ]
     return filter;
   }
-  getAllChjaracters(page:number,query:string){
+  getAllCharacters(page:number,query:string){
 
     let queryString = query.length > 0 ? (page+query) :page;
     return this._http.get(environment.url+'character?page='+queryString).pipe(
@@ -39,7 +36,6 @@ export class RmsShowService {
     )
   }
   handleError(error) {
-    console.log(error)
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
         // client-side error
@@ -48,7 +44,6 @@ export class RmsShowService {
         // server-side error
         errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log(errorMessage);
     return throwError(errorMessage);
 }
 }
