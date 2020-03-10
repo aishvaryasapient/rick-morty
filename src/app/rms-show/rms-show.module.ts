@@ -6,6 +6,7 @@ import { RmsListComponent } from './rms-list/rms-list.component';
 import { RmsDetailComponent } from './rms-detail/rms-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { RmsShowService } from './rms-show.service';
+import { ShowResolver } from './show.resolver';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RmsShowService } from './rms-show.service';
     SharedModule
   ],
   providers:[
-    RmsShowService
+    RmsShowService,
+    ShowResolver
   ]
 })
 export class RmsShowModule { }

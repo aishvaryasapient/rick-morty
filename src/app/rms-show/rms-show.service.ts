@@ -35,6 +35,12 @@ export class RmsShowService {
       catchError(this.handleError)
     )
   }
+  getShowData(){
+    return this._http.get(environment.url+'character/').pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RmsShowService } from '../rms-show.service';
 import {Page, Character, FILTER} from './../models/models';
 import { CHIPMODEL } from 'src/app/shared/model/chip.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'rms-rms-list',
@@ -20,9 +21,14 @@ export class RmsListComponent implements OnInit {
   allCharacters: any[];
   filterList:FILTER[];
   selectedFilter: CHIPMODEL[]=[];
-  constructor(private _rmsService: RmsShowService) { }
+  constructor(private _rmsService: RmsShowService, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // route resolver implementation
+    this._activatedRoute.data.subscribe(res=>{
+      console.log(res);
+    });
+   
     this.filterList = this._rmsService.getAllFilterList();
     this.getAllCharacters(1)
   }

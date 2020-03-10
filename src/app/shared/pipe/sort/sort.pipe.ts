@@ -27,16 +27,13 @@ transform(data : any[], ...args : any[] ){
     // let comparer = this.getComparer(attrName);
     // if (isDesc)
     //     comparer = this.getDescendigComparer(comparer);
+   
     data.sort((p1:any,p2:any)=>{
-      if(sort === 'desc'){
-        if (p1[attrName] < p2[attrName]) return 1;
-        if (p1[attrName] > p2[attrName]) return -1;
+      
+        if (p1[attrName] < p2[attrName]) return  sort === 'desc' ? 1:-1;
+        if (p1[attrName] > p2[attrName]) return sort === 'desc' ? -1:1;
         return 0;
-      }else{
-        if (p1[attrName] < p2[attrName]) return -1;
-        if (p1[attrName] > p2[attrName]) return 1;
-        return 0;
-      } 
+       
     });
     return data;
 }
